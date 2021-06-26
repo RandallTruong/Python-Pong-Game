@@ -1,6 +1,6 @@
 # Pong Game
 
-# Turtle module lets you do basic graphics and good for starting with game
+# Turtle module lets you do basic graphics and is good for starting with games
 import turtle
 
 # Creating a window
@@ -68,31 +68,26 @@ pen.goto(0, 260)
 pen.write("Player 1: 0 Player 2:0", align="center",
           font=("Courier", 24, "normal"))
 
-
 # Function
 def paddle_one_up():
     y_coordinate = paddle_one.ycor()  # Sets the current y coordinate to the variable
     y_coordinate += 50  # Add 50 pixels to the y coordinate
     paddle_one.sety(y_coordinate)  # Sets the new y coordinate
 
-
 def paddle_one_down():
     y_coordinate = paddle_one.ycor()  # Sets the current y coordinate to the variable
     y_coordinate -= 50  # Removes 50 pixels from the y coordinate
     paddle_one.sety(y_coordinate)  # Sets the new y coordinate
-
 
 def paddle_two_up():
     y_coordinate2 = paddle_two.ycor()
     y_coordinate2 += 50
     paddle_two.sety(y_coordinate2)
 
-
 def paddle_two_down():
     y_coordinate2 = paddle_two.ycor()
     y_coordinate2 -= 50
     paddle_two.sety(y_coordinate2)
-
 
 # Keyboard Binding
 window.listen()  # This tells the window to listen for keyboard input
@@ -110,7 +105,6 @@ window.onkeypress(paddle_two_up, "Up")
 window.listen()
 # When user presses down arrow call the function paddle_two_down
 window.onkeypress(paddle_two_down, "Down")
-
 
 # Main game loop
 while True:
@@ -135,26 +129,24 @@ while True:
         ball.goto(0, 0)  # Ball goes back to center
         ball.dx *= -1
         Score_1 += 1  # Increase player 1 score by 1
-        pen.clear()
+        pen.clear() #Removes old score
         pen.write("Player 1: {} Player 2: {}".format(Score_1, Score_2), align="center",
-                  font=("Courier", 24, "normal"))
+                  font=("Courier", 24, "normal")) #Updates Score
 
     # (Left Border)
     if ball.xcor() < -390:
         ball.goto(0, 0)  # Ball goes back to center
         ball.dx *= -1
         Score_2 += 1  # Increase player 2 score by 1
-        pen.clear()
+        pen.clear() #Removes old score
         pen.write("Player 1: {} Player 2: {}".format(Score_1, Score_2), align="center",
-                  font=("Courier", 24, "normal"))
+                  font=("Courier", 24, "normal")) #Updates Score
 
     # Paddle and ball collisions
     if (ball.xcor() > 340 and ball.xcor() < 350) and (ball.ycor() < paddle_two.ycor() + 60 and ball.ycor() > paddle_two.ycor() - 60):
-        # Moves the ball back to the left so ball does not get stuck
         ball.setx(340)
         ball.dx *= -1  # Reverse direction of ball
 
     if (ball.xcor() < -340 and ball.xcor() > -350) and (ball.ycor() < paddle_one.ycor() + 60 and ball.ycor() > paddle_one.ycor() - 60):
-        # Moves the ball back to the left so ball does not get stuck
         ball.setx(-340)
         ball.dx *= -1  # Reverse direction of ball

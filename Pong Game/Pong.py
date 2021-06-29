@@ -23,7 +23,7 @@ paddle_one = turtle.Turtle()
 # Set animation speed to the maximum possible speed
 paddle_one.speed(0)
 paddle_one.shape("square")
-paddle_one.color("orange")
+paddle_one.color("white")
 # Stretch the width by 5 and keep the length the same
 paddle_one.shapesize(stretch_wid=5, stretch_len=1)
 # penup because we do not want to draw a line when paddle moves
@@ -37,7 +37,7 @@ paddle_two = turtle.Turtle()
 # Set animation speed to the maximum possible speed
 paddle_two.speed(0)
 paddle_two.shape("square")
-paddle_two.color("orange")
+paddle_two.color("white")
 # Stretch the width by 5 and keep the length the same
 paddle_two.shapesize(stretch_wid=5, stretch_len=1)
 paddle_two.penup()
@@ -47,15 +47,15 @@ paddle_two.goto(350, 0)
 # Ball
 ball = turtle.Turtle()
 ball.speed(0)
-ball.shape("square")
+ball.shape("circle")
 ball.color("white")
 # penup because we do not want to draw a line when ball moves
 ball.penup()
 ball.goto(0, 0)
 # Split the ball's movement to an x movement and a y movement
 # dx means change in x & dy means change in y
-ball.dx = 0.2
-ball.dy = 0.2
+ball.dx = 0.3
+ball.dy = 0.3
 
 # Pen
 pen = turtle.Turtle()
